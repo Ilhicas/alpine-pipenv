@@ -18,6 +18,14 @@ COPY . /app
 CMD python app.py
 ```
 
+## I'm missing gcc or other packages | How to install more alpine packages with this image?
+
+Using more alpine packages that you may require running this image
+
+    docker build --build-arg packages="build-base curl wget"  -t andreilhicas/pipenv:custom
+
+Note packages should be spaced with empty space between them.
+
 > Advantages to using this image over kennethreitz/pipenv (Size only) - `114MB` vs `1.03GB`
 
 > Disadvantages - This is an alpine based version, based on official python3.7:alpine images and some python packages might not work as expected in alpine

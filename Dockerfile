@@ -1,6 +1,8 @@
 
 FROM python:3.7-alpine3.8
-
+ARG packages
+RUN apk --update add ${packages} \
+    && rm -rf /var/cache/apk/*
 RUN pip3 install pipenv
 
 # -- Install Application into container:
